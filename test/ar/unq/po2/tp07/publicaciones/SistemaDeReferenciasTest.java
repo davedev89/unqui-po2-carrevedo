@@ -25,11 +25,11 @@ class SistemaDeReferenciasTest {
 	void setUp() throws Exception {
 		
 		this.sistema = new SistemaDeReferencias();
-		this.temaArticulo.add("Anatomia");
-		this.intereses1.add("Ciencias Naturales");
-		this.intereses1.add("Anatomia");
-		this.intereses2.add("Filosofia");
-		this.intereses2.add("UNQ");
+		this.temaArticulo.add("Programacion");
+		this.intereses1.add("Informatica");
+		this.intereses1.add("Programacion");
+		this.intereses2.add("Arte");
+		this.intereses2.add("Musica");
 	}
 	
 	@Test

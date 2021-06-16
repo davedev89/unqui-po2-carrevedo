@@ -51,8 +51,6 @@ public class SistemaDeReferencias {
 				suscriptor.update(articulo);
 			}
 		}
-		
-		
-
+	
 	}
 }
