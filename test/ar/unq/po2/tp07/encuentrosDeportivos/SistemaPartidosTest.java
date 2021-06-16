@@ -20,7 +20,7 @@ class SistemaPartidosTest {
 	//private Partido partido1;
 	//private Partido partido2;
 	private ArrayList <Partido> partidos;
-	private Suscriptor suscriptor1;
+	//private Suscriptor suscriptor1;
 	//private Suscriptor suscriptor2;
 	private Map<Suscriptor, Interes> suscripciones;
 	//private ArrayList<String> contrincantes;
@@ -54,13 +54,15 @@ class SistemaPartidosTest {
 		Partido partido = mock(Partido.class);
 		Servidor servidor = mock(Servidor.class);
 		
+		
 		when(partido.getDeporte()).thenReturn("Futbol");
 		when(servidor.getIntereses()).thenReturn("Futbol");
 		
-		this.sistema.agregarSuscriptor(suscriptor1);
 		this.sistema.agregarPartido(partido);
+		this.sistema.agregarSuscriptor(servidor);
 		
-		verify (suscriptor1).recibirPartido(partido);
+		
+		verify (servidor).recibirPartido(partido);
 		
 	}
 

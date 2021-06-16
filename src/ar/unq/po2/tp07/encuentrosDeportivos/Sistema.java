@@ -17,6 +17,13 @@ public class Sistema {
 		super();
 		this.setPartidos(new ArrayList<Partido>());;
 		this.setSuscripciones(new HashMap<Suscriptor, Interes>());
+		this.setSuscriptores(new ArrayList<Suscriptor>());
+	}
+
+	private void setSuscriptores(ArrayList<Suscriptor> susc) {
+		// TODO Auto-generated method stub
+		this.suscriptores = susc;
+		
 	}
 
 	public ArrayList<Partido> getPartidos() {
@@ -54,9 +61,9 @@ public class Sistema {
 		}
 	}
 
-	public void agregarSuscriptor(Suscriptor suscriptor1) {
+	public void agregarSuscripcion(Map<Suscriptor, Interes> suscripcion) {
 		// TODO Auto-generated method stub
-		this.suscriptores.add(suscriptor1);
+		this.getSuscripciones().;
 	}
 	
 	
