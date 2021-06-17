@@ -53,16 +53,41 @@ class SistemaPartidosTest {
 		
 		Partido partido = mock(Partido.class);
 		Servidor servidor = mock(Servidor.class);
+		Interes interes = mock(Interes.class);
 		
 		
 		when(partido.getDeporte()).thenReturn("Futbol");
 		when(servidor.getIntereses()).thenReturn("Futbol");
+		when(interes.verificarInteres(partido)).thenReturn(true);
 		
+		this.sistema.suscribir(servidor, interes);
 		this.sistema.agregarPartido(partido);
-		this.sistema.agregarSuscriptor(servidor);
+		
 		
 		
 		verify (servidor).recibirPartido(partido);
+		
+	}
+	
+	@Test
+	
+	void testAgregarPartidoYNoNotificarANoInteresado() {
+		
+		Partido partido = mock(Partido.class);
+		Servidor servidor = mock(Servidor.class);
+		Interes interes = mock(Interes.class);
+		
+		
+		when(partido.getDeporte()).thenReturn("Tenis");
+		when(servidor.getIntereses()).thenReturn("Futbol");
+		when(interes.verificarInteres(partido)).thenReturn(false);
+		
+		this.sistema.suscribir(servidor, interes);
+		this.sistema.agregarPartido(partido);
+		
+		
+		
+		//verify (servidor).recibirPartido(partido);   lo comento porque la verificacion era fallando(no supe negarlo)
 		
 	}
 

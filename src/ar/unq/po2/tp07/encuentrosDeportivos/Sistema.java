@@ -56,14 +56,17 @@ public class Sistema {
 			if(suscripcion.getValue().verificarInteres(partido)) {
 				suscripcion.getKey().recibirPartido(partido);
 			}
-			
-			
+						
 		}
 	}
 
-	public void agregarSuscripcion(Map<Suscriptor, Interes> suscripcion) {
-		// TODO Auto-generated method stub
-		this.getSuscripciones().;
+		
+	public void suscribir(Suscriptor suscriptor, Interes interes) {
+		this.getSuscripciones().put(suscriptor, interes);   // no pude usar .add // .put es la forma de agregar en Maps?
+	}
+	
+	public void desuscribir(Suscriptor suscriptor) {
+		this.getSuscripciones().remove(suscriptor);
 	}
 	
 	
