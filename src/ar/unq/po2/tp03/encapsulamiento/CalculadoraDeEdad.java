@@ -8,11 +8,11 @@ import java.time.format.DateTimeFormatter;
 
 public class CalculadoraDeEdad {
 	
-	public double calcularEdad(Date fecha) {
+	public double calcularEdad(LocalDate fecha) {
 			
-			DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			SimpleDateFormat x =  new SimpleDateFormat("E dd/MM/yyyy");
-			LocalDate fechaNac = LocalDate.parse(x.format(fecha), fmt);
+			//DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			//SimpleDateFormat x =  new SimpleDateFormat("E dd/MM/yyyy");
+			LocalDate fechaNac = fecha;//LocalDate.parse(x.format(fecha), fmt);
 			LocalDate ahora = LocalDate.now();		 
 			Period periodo = Period.between(fechaNac, ahora);
 			return periodo.getYears();

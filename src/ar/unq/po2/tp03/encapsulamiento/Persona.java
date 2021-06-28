@@ -1,20 +1,22 @@
 package ar.unq.po2.tp03.encapsulamiento;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 	
 public class Persona {
 	
 	String nombre;
 	String apellido;
-	Date fecNac;
+    LocalDate fecNac;
 	CalculadoraDeEdad calculadoraDeEdad;
 	
 	
-	public Persona (String nomb, String apell, Date fecN) {
+	public Persona (String nomb, String apell, LocalDate fecN) {
 		this.nombre = nomb;
 		this.apellido = apell;
 		this.fecNac = fecN;
+		calculadoraDeEdad = new CalculadoraDeEdad();
 	}
 		
 	//Getters y Setters 
@@ -34,24 +36,20 @@ public class Persona {
 		this.apellido = surname;
 	}
 	
-	public Date getFecNac() {
+	public LocalDate getFecNac() {
 		return fecNac;
 	}
 	
-	public void setFecNac(Date fecha) {
+	public void setFecNac(LocalDate fecha) {
 		this.fecNac = fecha;
 	}
 	
 	public double getEdad() {
-		
-		
 		return calculadoraDeEdad.calcularEdad(this.fecNac);
 		
 	}
-	
-	
-	public boolean menorQue (Persona persona) {
 		
+	public boolean menorQue (Persona persona) {
 		return this.getEdad() < persona.getEdad();
 		
 	}

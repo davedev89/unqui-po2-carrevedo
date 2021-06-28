@@ -10,6 +10,7 @@ public class EquipoDeTrabajo {
 	
 	public EquipoDeTrabajo(String nombre) {
 		this.nombre = nombre;
+		equipo = new ArrayList <Persona> ();
 	}
 	
 	public String getNombre () {

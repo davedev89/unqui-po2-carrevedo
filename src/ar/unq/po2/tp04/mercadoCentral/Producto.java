@@ -1,57 +1,46 @@
 package ar.unq.po2.tp04.mercadoCentral;
 
-public abstract class Producto implements Facturable {
-	
-	private String nombre;
-	private double precioBase;
-	//private boolean cooperativo;
+public abstract class Producto implements Pagable {
+
+	private double precio;
 	private int stock;
+	private String nombre;
 	
-	public Producto(String nom, double precio, int sto) {
-		this.nombre = nom;
-		this.precioBase = precio;
-		//this.setCooperativo(esCoop);
-		this.stock = sto;
-	}
-	
-	public String getNombre () {
-		return nombre;
-	}
-	
-	public void setNombre(String nom) {
-		this.nombre = nom;
-	}
-	
-	public double getprecioBase () {
-		return precioBase;
-	}
-	
-	public void setPrecioBase(double precio) {
-		this.precioBase = precio;
-	}
-	
-	//public boolean esCooperativo() {
-	//	return this.setCooperativo(true);
-	//}
-	
-	public void descontarDeStock(int cantidad) {
-		this.stock = this.stock - cantidad;
-	}
-	
-	
-	public abstract double obtenerPrecioTotal();
-
-	
-	// los siguientes metodos fueron generados automaticos, a prueba
-	
-	/*public boolean isCooperativo() {
-		return cooperativo;
+	public Producto(double precio, int stock, String nombre) {
+		this.precio = precio;
+		setStock(stock);
+		this.nombre = nombre;
 	}
 
-	public boolean setCooperativo(boolean cooperativo) {
-		this.cooperativo = cooperativo;
-		return cooperativo;
-	}*/
-	
+	public double getPrecio() {
+		return precio;
+	}
 
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	
+	public void decrementarStock() {
+		setStock(getStock()-1);
+	}
+	
+	public boolean hayStock() {
+		return this.getStock() > 0;
+	}
+	
+	public abstract double precioFinal();
+	
+	public void registrarEnCaja(Caja caja) {
+		if(this.hayStock()) {
+			caja.incrementarMontoAPagar(this.precioFinal());
+			this.decrementarStock();
+		}
+		else {
+			System.out.println("Producto sin stock disponible");
+		}
+	}
 }

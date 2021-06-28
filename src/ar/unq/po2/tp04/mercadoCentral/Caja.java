@@ -1,36 +1,24 @@
 package ar.unq.po2.tp04.mercadoCentral;
 
-import java.util.ArrayList;
+public class Caja {
+	private double totalAPagar;
+	private Agencia agencia;
 
-public class Caja implements Agencia {
-	
-	private ArrayList <Facturable> facturablesRegistrados;
-	
-	public Caja () {
-		
-		this.facturablesRegistrados = new ArrayList<Facturable>();
-		
+	public Caja(Agencia agencia) {
+		this.totalAPagar = (0.00f);
+		this.agencia = agencia;
 	}
 	
-	public ArrayList<Facturable> getProductos() {
-		return facturablesRegistrados;
-	}
-	
-	public void resgistrarProducto(Facturable facturable) {
-		facturablesRegistrados.add(facturable);
-	}
-	
-	public double getSumaTotal() {
-		return this.facturablesRegistrados.stream().mapToDouble(p -> p.obtenerPrecioTotal()).sum();
+	public double getTotalAPagar() {
+		return this.totalAPagar;
 	}
 
-	@Override
-	public void registrarPago(Facturable factura) {
-
-		//falta diferenciar cuales son facturas y no productos
-		
+	public void registrarPagable(Pagable pagable) {
+		pagable.registrarEnCaja(this);
 	}
-	
-	
 
+	public void incrementarMontoAPagar(double precio) {
+		this.totalAPagar = this.getTotalAPagar()+precio;
+	}
 }
+
