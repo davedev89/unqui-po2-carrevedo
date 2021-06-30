@@ -1,12 +1,15 @@
 package ar.unq.po2.tp05.bancosYPrestamos;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+
 
 public class Banco {
 	
 	private ArrayList <Cliente> clientes;
 	private ArrayList <Solicitud> solicitudes;
-	
+	private int montoADesembolsar;
 	
 	public Banco () {
 		this.clientes = new ArrayList <Cliente>();
@@ -47,12 +50,11 @@ public class Banco {
 	}
 
 	public int getMontoADesembolsar() {
-		
-		// Agregar lambda para sumar en arraylist
-		
-		return this.getSolicitudes().stream(). //falta 
+				
+		for (Solicitud solicitud : this.getSolicitudes()) {
+			montoADesembolsar += solicitud.getMonto();
+		}
+		return montoADesembolsar;
 	}
-
-		
 
 }

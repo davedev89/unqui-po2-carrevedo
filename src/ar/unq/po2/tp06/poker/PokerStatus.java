@@ -41,6 +41,10 @@ public class PokerStatus {
 		return Collections.max(cantidadPorPalo.values()) == 5;
 	}
 	
+	//counting, cuenta el numero de elementos y me lo da en un Long
+	//groupingBy, agrupara en el Map por primerParametro y cantidad
+	
+	
 	private Map<Integer, Long> cantidadCartasPorValor(List<Carta> cartas) {
 		return cartas.stream()
 				.collect(Collectors.groupingBy(Carta::getValor, Collectors.counting()));

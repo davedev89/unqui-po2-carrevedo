@@ -37,8 +37,6 @@ class BancoTest {
 		unaPropiedad = new Propiedad("asd", 10000);
 	}
 
-	
-
 	@Test
 	void testAgregarClientes() {
 
@@ -46,7 +44,6 @@ class BancoTest {
 		unBanco.agregarCliente(cliente2);
 		
 		assertTrue(unBanco.getClientes().contains(cliente1));
-		
 	}
 	
 	@Test
@@ -59,13 +56,9 @@ class BancoTest {
 	void testSolicitarCreditoPersonal() {
 		
 		assertTrue(unBanco.getSolicitudes().isEmpty());
-		
 		unBanco.solicitarCreditoPersonal(cliente1, 100000, 12);
-		
 		assertFalse(unBanco.getSolicitudes().isEmpty());
-	
 	}
-	
 	
 	@Test
 	void testSolicitarCreditoHipotecario() {
@@ -79,21 +72,19 @@ class BancoTest {
 	void testUnCreditoPersonalNoEsAceptable(){
 		
 		assertFalse(unaSolicitudPersonalNoAceptable.esAceptable());
-		
 	}
 	
 	@Test
 	void testUnCreditoHipotecarioAceptable() {
 		
 		assertFalse(unaSolicitudHipotecariaNoAceptable.esAceptable());
-		
 	}
 	
 	@Test
 	void testMontoADesembolsar() {
 		unBanco.solicitarCreditoPersonal(cliente1, 2000, 12);
 		unBanco.solicitarCreditoHipotecario(cliente2, 10000, 12, "asd", 10000);
-		
+
 		assertEquals(unBanco.getMontoADesembolsar() , 12000);
 	}
 
