@@ -55,20 +55,17 @@ public class Sistema {
 			
 			if(suscripcion.getValue().verificarInteres(partido)) {
 				suscripcion.getKey().recibirPartido(partido);
-			}
-						
+			}		
 		}
 	}
-
 		
 	public void suscribir(Suscriptor suscriptor, Interes interes) {
-		this.getSuscripciones().put(suscriptor, interes);   // no pude usar .add // .put es la forma de agregar en Maps?
+		this.getSuscripciones().put(suscriptor, interes);   // no pude usar .add 
+		                                                    // .put es la forma de agregar en Maps?
 	}
 	
 	public void desuscribir(Suscriptor suscriptor) {
 		this.getSuscripciones().remove(suscriptor);
 	}
 	
-	
-
 }

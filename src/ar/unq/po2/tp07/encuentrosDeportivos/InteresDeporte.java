@@ -6,24 +6,18 @@ public class InteresDeporte implements Interes {
 	
 	private ArrayList <String> deportes;
 	
-	
-
 	public InteresDeporte(ArrayList<String> deportes) {
 		super();
 		this.deportes = deportes;
 	}
 	
-	
-
 	public ArrayList<String> getDeportes() {
 		return deportes;
 	}
 
-
 	public void setDeportes(ArrayList<String> deportes) {
 		this.deportes = deportes;
 	}
-
 
 	@Override
 	public boolean verificarInteres(Partido partido) {

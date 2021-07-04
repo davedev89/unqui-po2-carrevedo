@@ -6,28 +6,22 @@ public class InteresContrincante implements Interes {
 	
 	private ArrayList <String> contrincantes;
 	
-	
-
 	public InteresContrincante(ArrayList<String> contrincantes) {
 		super();
 		this.contrincantes = contrincantes;
 	}
-
 	
 	public ArrayList<String> getContrincantes() {
 		return contrincantes;
 	}
 
-
 	public void setContrincantes(ArrayList<String> contrincantes) {
 		this.contrincantes = contrincantes;
 	}
 
-
 	@Override
 	public boolean verificarInteres(Partido partido) {
-		// TODO Auto-generated method stub
-		
+			
 		ArrayList<String> contrincantesInteresantes = new ArrayList<String>(this.getContrincantes());
 		return contrincantesInteresantes.retainAll(partido.getContrincantes());
 		
